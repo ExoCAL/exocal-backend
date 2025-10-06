@@ -26,7 +26,7 @@ from datetime import datetime, timedelta
 
 PROG_RE = re.compile(r"^\[(KOI|TOI|K2)\]\s+Working on\s+(\d+)/(\d+):\s*(.+)$")
 # Put this near your other globals
-DEMO_DATA_ROOT = Path("./ExoCAL/NASA_archive_data").resolve()
+DEMO_DATA_ROOT = Path("./Exoplanet-Candidate-Assessment-and-Labeling/NASA_archive_data").resolve()
 DEMO_PATHS = {
     "koi": DEMO_DATA_ROOT / "koi.csv",
     "toi": DEMO_DATA_ROOT / "toi.csv",
@@ -49,7 +49,7 @@ DEFAULT_QUIET = False
 JOB_EXPIRY_HOURS = int(os.getenv("JOB_EXPIRY_HOURS", "1"))  # Default 1 hour
 CLEANUP_INTERVAL_MINUTES = int(os.getenv("CLEANUP_INTERVAL_MINUTES", "10"))  # Check every 10 minutes
 
-SCRIPT_PATH = (Path(__file__).parent / "ExoCAL" / "exo_analysis_code" / "exo_analysis.py").resolve()
+SCRIPT_PATH = (Path(__file__).parent / "Exoplanet-Candidate-Assessment-and-Labeling" / "exo_cal_code" / "exo_analysis.py").resolve()
 PYTHON_BIN = os.getenv("PYTHON_BIN") or sys.executable  # use current venv's python by default
 
 # ======================
@@ -424,7 +424,6 @@ def health():
         "script_path": str(SCRIPT_PATH),
         "output_root": str(OUTPUT_ROOT),
     }
-
 @app.post("/api/upload", status_code=status.HTTP_202_ACCEPTED)
 async def upload_files(
     background_tasks: BackgroundTasks,
@@ -517,6 +516,7 @@ async def upload_files(
         "artifacts_url": f"/api/jobs/{job_id}/artifacts",
         "download_url": f"/api/jobs/{job_id}/download"
     }
+
 
 @app.get("/api/jobs/{job_id}/status")
 def job_status(job_id: str):
