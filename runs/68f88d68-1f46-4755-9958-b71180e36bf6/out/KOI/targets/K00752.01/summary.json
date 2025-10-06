@@ -1,0 +1,51 @@
+{
+  "dataset": "KOI",
+  "designation": "K00752.01",
+  "pred_prob": 0.9234507897934386,
+  "entropy": 0.2702593634282814,
+  "margin": 0.42345078979343864,
+  "top_features": [
+    {
+      "feature": "Teff",
+      "contrib_proxy": 0.15308367013649132
+    },
+    {
+      "feature": "Vmag",
+      "contrib_proxy": -0.044030205289682316
+    },
+    {
+      "feature": "Dur",
+      "contrib_proxy": 0.041252049273992904
+    },
+    {
+      "feature": "logg",
+      "contrib_proxy": 0.008595934211746085
+    },
+    {
+      "feature": "depth_frac",
+      "contrib_proxy": -0.006330251824480573
+    }
+  ],
+  "physics": {
+    "P_days": 9.48803557,
+    "Dur_hr": 2.9575,
+    "Depth_ppm": 615.8,
+    "Rp_Re": 2.26,
+    "Teff_K": 5455.0,
+    "Rstar_Rsun": 0.927,
+    "RpRs": 0.024815317850069945
+  },
+  "physics_check": {
+    "dur_expected_hr": 3.6509218339543654,
+    "dur_obs_hr": 2.9575,
+    "dur_ratio": 0.8100693837086864,
+    "flag": "ok"
+  },
+  "mc": {
+    "mean": 0.922889820327291,
+    "std": 0.00515156111333744,
+    "p05": 0.9234507897934386,
+    "p95": 0.9234507897934386,
+    "n": 256
+  }
+}

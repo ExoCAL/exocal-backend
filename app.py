@@ -67,6 +67,21 @@ app.add_middleware(
 
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
+@app.on_event("startup")
+async def startup_event():
+    """Initialize cleanup thread on startup"""
+    global cleanup_thread
+    if cleanup_thread is None or not cleanup_thread.is_alive():
+        cleanup_thread = threading.Thread(target=cleanup_scheduler, daemon=True)
+        cleanup_thread.start()
+        print("✅ Cleanup scheduler started")
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Clean shutdown"""
+    print("🔄 Shutting down ExoCAL API...")
+    # The cleanup thread will stop automatically as it's a daemon thread
+
 # ======================
 # CLEANUP FUNCTIONS
 # ======================
@@ -103,9 +118,8 @@ def cleanup_scheduler():
             print(f"Error in cleanup scheduler: {e}")
             time.sleep(60)  # Wait 1 minute before retrying
 
-# Start cleanup thread
-cleanup_thread = threading.Thread(target=cleanup_scheduler, daemon=True)
-cleanup_thread.start()
+# Global cleanup thread variable
+cleanup_thread = None
 
 @app.post("/api/admin/cleanup")
 def manual_cleanup():

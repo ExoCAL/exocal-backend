@@ -1,0 +1,26 @@
+{
+  "job_id": "0b523c51-ee51-4e6a-a9e7-d8f24ff26556",
+  "created_at": "2025-10-06T06:58:29.739171+00:00",
+  "started_at": "2025-10-06T06:58:29.747826+00:00",
+  "finished_at": "2025-10-06T06:59:02.057359+00:00",
+  "state": "done",
+  "return_code": 0,
+  "error": null,
+  "out_dir": "G:\\ExoCalbackend\\runs\\0b523c51-ee51-4e6a-a9e7-d8f24ff26556\\out",
+  "script": "G:\\ExoCalbackend\\Exoplanet-Candidate-Assessment-and-Labeling\\exo_cal_code\\exo_analysis.py",
+  "params": {},
+  "artifacts": [],
+  "zip": "out.zip",
+  "log": "G:\\ExoCalbackend\\runs\\0b523c51-ee51-4e6a-a9e7-d8f24ff26556\\run.log",
+  "expires_at": null,
+  "last_heartbeat": "2025-10-06T06:59:00.912431+00:00",
+  "progress": {
+    "dataset": "KOI",
+    "current": 5,
+    "total": 5,
+    "percent": 100.0,
+    "last_target": "K00755.01",
+    "message": "KOI: 5/5 (100.0%)",
+    "updated_at": "2025-10-06T06:59:00.913581+00:00"
+  }
+}
